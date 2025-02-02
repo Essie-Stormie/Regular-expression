@@ -7,7 +7,7 @@ function validateCreditCardNumber(cardNumber, cardType) {
         Discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
     };
 
-    // Check if the card type is supported
+    
     if (!cardPatterns[cardType]) {
         return { valid: false, message: "Unsupported card type" };
     }
@@ -29,7 +29,7 @@ function luhnCheck(cardNumber) {
     let sum = 0;
     let shouldDouble = false;
 
-    // Loop through the card number from the end to the beginning
+    
     for (let i = cardNumber.length - 1; i >= 0; i--) {
         let digit = parseInt(cardNumber.charAt(i), 10);
 
@@ -44,13 +44,13 @@ function luhnCheck(cardNumber) {
         shouldDouble = !shouldDouble;
     }
 
-    // If the sum is a multiple of 10, the card number is valid
+    
     return sum % 10 === 0;
 }
 
-// Example usage:
-const cardNumber = "4111111111111111"; // Example Visa card number
-const cardType = "Visa"; // Card type
+
+const cardNumber = "4111111111111111"; 
+const cardType = "Visa"; 
 
 const validationResult = validateCreditCardNumber(cardNumber, cardType);
 console.log(validationResult.message);
