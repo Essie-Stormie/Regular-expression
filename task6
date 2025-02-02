@@ -1,0 +1,16 @@
+function validateCreditCard(number) {
+    const visaRegex = /^4[0-9]{12}(?:[0-9]{3})?$/; // Visa: Starts with 4, 13 or 16 digits
+    const mastercardRegex = /^5[1-5][0-9]{14}$/;   // MasterCard: Starts with 51-55, 16 digits
+
+    if (visaRegex.test(number)) {
+        return 'Visa';
+    } else if (mastercardRegex.test(number)) {
+        return 'MasterCard';
+    } else {
+        return 'Invalid';
+    }
+}
+
+// Test the function
+const cardNumber = '4111111111111111'; // Example Visa number
+console.log(validateCreditCard(cardNumber)); // Output: Visa
